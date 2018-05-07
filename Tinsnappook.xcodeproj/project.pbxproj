@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011A3DEB886C9AFDB8D51B53 /* Pods_Tinsnappook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715730B42FD77F36B61DFBF6 /* Pods_Tinsnappook.framework */; };
 		8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11B20A0C59700729C60 /* AppDelegate.swift */; };
 		8492A11E20A0C59700729C60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11D20A0C59700729C60 /* ViewController.swift */; };
 		8492A12120A0C59700729C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8492A11F20A0C59700729C60 /* Main.storyboard */; };
 		8492A12320A0C59800729C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8492A12220A0C59800729C60 /* Assets.xcassets */; };
 		8492A12620A0C59800729C60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8492A12420A0C59800729C60 /* LaunchScreen.storyboard */; };
+		8492A12E20A0DBC300729C60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8492A12D20A0DBC300729C60 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23D79FC58A6B5CF6F835E667 /* Pods-Tinsnappook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tinsnappook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tinsnappook/Pods-Tinsnappook.debug.xcconfig"; sourceTree = "<group>"; };
+		303DEBF8699B0336B342FC2D /* Pods-Tinsnappook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tinsnappook.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tinsnappook/Pods-Tinsnappook.release.xcconfig"; sourceTree = "<group>"; };
+		715730B42FD77F36B61DFBF6 /* Pods_Tinsnappook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tinsnappook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8492A11820A0C59700729C60 /* Tinsnappook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinsnappook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8492A11B20A0C59700729C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8492A11D20A0C59700729C60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		8492A12220A0C59800729C60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8492A12520A0C59800729C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8492A12720A0C59800729C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8492A12D20A0DBC300729C60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011A3DEB886C9AFDB8D51B53 /* Pods_Tinsnappook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				8492A11A20A0C59700729C60 /* Tinsnappook */,
 				8492A11920A0C59700729C60 /* Products */,
+				C34501EB3FFC4B57F29BAE03 /* Pods */,
+				DC3CAD956C2E46C7E628AF3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,26 @@
 				8492A12220A0C59800729C60 /* Assets.xcassets */,
 				8492A12420A0C59800729C60 /* LaunchScreen.storyboard */,
 				8492A12720A0C59800729C60 /* Info.plist */,
+				8492A12D20A0DBC300729C60 /* GoogleService-Info.plist */,
 			);
 			path = Tinsnappook;
+			sourceTree = "<group>";
+		};
+		C34501EB3FFC4B57F29BAE03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23D79FC58A6B5CF6F835E667 /* Pods-Tinsnappook.debug.xcconfig */,
+				303DEBF8699B0336B342FC2D /* Pods-Tinsnappook.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC3CAD956C2E46C7E628AF3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				715730B42FD77F36B61DFBF6 /* Pods_Tinsnappook.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8492A12A20A0C59800729C60 /* Build configuration list for PBXNativeTarget "Tinsnappook" */;
 			buildPhases = (
+				969BCDFFD70C34F6682BC5DF /* [CP] Check Pods Manifest.lock */,
 				8492A11420A0C59700729C60 /* Sources */,
 				8492A11520A0C59700729C60 /* Frameworks */,
 				8492A11620A0C59700729C60 /* Resources */,
+				AF289AA0DECB91DD2B41C616 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +152,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				8492A12620A0C59800729C60 /* LaunchScreen.storyboard in Resources */,
+				8492A12E20A0DBC300729C60 /* GoogleService-Info.plist in Resources */,
 				8492A12320A0C59800729C60 /* Assets.xcassets in Resources */,
 				8492A12120A0C59700729C60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		969BCDFFD70C34F6682BC5DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tinsnappook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF289AA0DECB91DD2B41C616 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Tinsnappook/Pods-Tinsnappook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tinsnappook/Pods-Tinsnappook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8492A11420A0C59700729C60 /* Sources */ = {
@@ -278,15 +351,13 @@
 		};
 		8492A12B20A0C59800729C60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23D79FC58A6B5CF6F835E667 /* Pods-Tinsnappook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 642542NRQ4;
 				INFOPLIST_FILE = Tinsnappook/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarespindola.Tinsnappook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +367,13 @@
 		};
 		8492A12C20A0C59800729C60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 303DEBF8699B0336B342FC2D /* Pods-Tinsnappook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 642542NRQ4;
 				INFOPLIST_FILE = Tinsnappook/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarespindola.Tinsnappook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
