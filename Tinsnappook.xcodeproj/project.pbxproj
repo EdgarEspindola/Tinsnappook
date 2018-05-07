@@ -17,6 +17,7 @@
 		8492A13020A0E45A00729C60 /* ConfigActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A12F20A0E45A00729C60 /* ConfigActivityIndicator.swift */; };
 		8492A13320A0EB4800729C60 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13220A0EB4800729C60 /* AlertControllerHelper.swift */; };
 		8492A13720A0F07700729C60 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13620A0F07600729C60 /* SWRevealViewController.m */; };
+		8492A13A20A0FBED00729C60 /* LastNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13920A0FBED00729C60 /* LastNewsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8492A13520A0F07600729C60 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8492A13620A0F07600729C60 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8492A13820A0F0C800729C60 /* RevealViewBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RevealViewBridging.h; sourceTree = "<group>"; };
+		8492A13920A0FBED00729C60 /* LastNewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNewsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				8492A11B20A0C59700729C60 /* AppDelegate.swift */,
 				8492A11D20A0C59700729C60 /* AccessViewController.swift */,
 				8492A11F20A0C59700729C60 /* Main.storyboard */,
+				8492A13920A0FBED00729C60 /* LastNewsTableViewController.swift */,
 				8492A13820A0F0C800729C60 /* RevealViewBridging.h */,
 				8492A13420A0F07600729C60 /* SWRevealViewController */,
 				8492A13120A0E46B00729C60 /* helpers */,
@@ -239,6 +242,7 @@
 			files = (
 				8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */,
 				8492A13020A0E45A00729C60 /* ConfigActivityIndicator.swift in Sources */,
+				8492A13A20A0FBED00729C60 /* LastNewsTableViewController.swift in Sources */,
 				8492A13720A0F07700729C60 /* SWRevealViewController.m in Sources */,
 				8492A13320A0EB4800729C60 /* AlertControllerHelper.swift in Sources */,
 				8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */,
@@ -395,6 +399,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarespindola.Tinsnappook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Tinsnappook/RevealViewBridging.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -414,6 +419,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarespindola.Tinsnappook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Tinsnappook/RevealViewBridging.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

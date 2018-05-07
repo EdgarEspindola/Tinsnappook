@@ -26,7 +26,11 @@ class AccessViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    /// Realiza el procedimiento para el registro de usuarios
+    /// a través de usuario y contraseña
+    ///
+    /// - Parameter sender: button para disparar el registro
     @IBAction func didCreateAccount(_ sender: UIButton) {
         if let email = emailTextField.text, email != "" {
             if let password = passwordTextField.text, password != "" {
@@ -54,5 +58,31 @@ class AccessViewController: UIViewController {
             return
         }        
     }
+    
+    /// Realiza el procedimiento para loguear a un usuario
+    /// a través de usuario y contraseña
+    ///
+    /// - Parameter sender: button para disparar el login
+    @IBAction func didTapEmailLogin(_ sender: UIButton) {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            configActivityIndicator.start(view: view)
+            
+            // Start headless_email_auth
+            Auth.auth().signIn(withEmail: email, password: password) { [unowned self] (user: User?, error: Error?) in
+                
+                self.configActivityIndicator.stop()
+                if let error = error {
+                    AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: error.localizedDescription, controller: self)
+                    return
+                }
+                
+                self.performSegue(withIdentifier: "goMainVC", sender: nil)
+            }
+            
+        } else {
+            AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: "Email - Password can't be empty", controller: self)
+        }
+    }
+    
 }
 
