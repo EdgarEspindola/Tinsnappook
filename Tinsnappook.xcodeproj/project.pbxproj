@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		011A3DEB886C9AFDB8D51B53 /* Pods_Tinsnappook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715730B42FD77F36B61DFBF6 /* Pods_Tinsnappook.framework */; };
 		8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11B20A0C59700729C60 /* AppDelegate.swift */; };
-		8492A11E20A0C59700729C60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11D20A0C59700729C60 /* ViewController.swift */; };
+		8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11D20A0C59700729C60 /* AccessViewController.swift */; };
 		8492A12120A0C59700729C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8492A11F20A0C59700729C60 /* Main.storyboard */; };
 		8492A12320A0C59800729C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8492A12220A0C59800729C60 /* Assets.xcassets */; };
 		8492A12620A0C59800729C60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8492A12420A0C59800729C60 /* LaunchScreen.storyboard */; };
 		8492A12E20A0DBC300729C60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8492A12D20A0DBC300729C60 /* GoogleService-Info.plist */; };
+		8492A13020A0E45A00729C60 /* ConfigActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A12F20A0E45A00729C60 /* ConfigActivityIndicator.swift */; };
+		8492A13320A0EB4800729C60 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13220A0EB4800729C60 /* AlertControllerHelper.swift */; };
+		8492A13720A0F07700729C60 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13620A0F07600729C60 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +25,17 @@
 		715730B42FD77F36B61DFBF6 /* Pods_Tinsnappook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tinsnappook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8492A11820A0C59700729C60 /* Tinsnappook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinsnappook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8492A11B20A0C59700729C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8492A11D20A0C59700729C60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8492A11D20A0C59700729C60 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
 		8492A12020A0C59700729C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8492A12220A0C59800729C60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8492A12520A0C59800729C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8492A12720A0C59800729C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8492A12D20A0DBC300729C60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8492A12F20A0E45A00729C60 /* ConfigActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigActivityIndicator.swift; sourceTree = "<group>"; };
+		8492A13220A0EB4800729C60 /* AlertControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
+		8492A13520A0F07600729C60 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		8492A13620A0F07600729C60 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		8492A13820A0F0C800729C60 /* RevealViewBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RevealViewBridging.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +72,35 @@
 			isa = PBXGroup;
 			children = (
 				8492A11B20A0C59700729C60 /* AppDelegate.swift */,
-				8492A11D20A0C59700729C60 /* ViewController.swift */,
+				8492A11D20A0C59700729C60 /* AccessViewController.swift */,
 				8492A11F20A0C59700729C60 /* Main.storyboard */,
+				8492A13820A0F0C800729C60 /* RevealViewBridging.h */,
+				8492A13420A0F07600729C60 /* SWRevealViewController */,
+				8492A13120A0E46B00729C60 /* helpers */,
 				8492A12220A0C59800729C60 /* Assets.xcassets */,
 				8492A12420A0C59800729C60 /* LaunchScreen.storyboard */,
 				8492A12720A0C59800729C60 /* Info.plist */,
 				8492A12D20A0DBC300729C60 /* GoogleService-Info.plist */,
 			);
 			path = Tinsnappook;
+			sourceTree = "<group>";
+		};
+		8492A13120A0E46B00729C60 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8492A12F20A0E45A00729C60 /* ConfigActivityIndicator.swift */,
+				8492A13220A0EB4800729C60 /* AlertControllerHelper.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		8492A13420A0F07600729C60 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8492A13520A0F07600729C60 /* SWRevealViewController.h */,
+				8492A13620A0F07600729C60 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		C34501EB3FFC4B57F29BAE03 /* Pods */ = {
@@ -208,7 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8492A11E20A0C59700729C60 /* ViewController.swift in Sources */,
+				8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */,
+				8492A13020A0E45A00729C60 /* ConfigActivityIndicator.swift in Sources */,
+				8492A13720A0F07700729C60 /* SWRevealViewController.m in Sources */,
+				8492A13320A0EB4800729C60 /* AlertControllerHelper.swift in Sources */,
 				8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +389,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 642542NRQ4;
 				INFOPLIST_FILE = Tinsnappook/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarespindola.Tinsnappook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -373,7 +408,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 642542NRQ4;
 				INFOPLIST_FILE = Tinsnappook/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarespindola.Tinsnappook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
