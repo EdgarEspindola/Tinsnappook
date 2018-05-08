@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="117"/>
+            <point key="canvasLocation" x="108" y="116"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="MkG-r1-0u6">
@@ -303,19 +303,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="od8-jA-Q2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018" y="116"/>
+            <point key="canvasLocation" x="1956" y="116"/>
         </scene>
-        <!--My Profile-->
+        <!--Mi Perfíl-->
         <scene sceneID="OGZ-BZ-3Ps">
             <objects>
                 <viewController id="oie-Sp-RYh" customClass="ProfileUser" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hrK-ua-PHB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sA-4s-XCp">
+                                <rect key="frame" x="67" y="64" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tu nickname" textAlignment="natural" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="18W-9N-5o8">
+                                <rect key="frame" x="16" y="312" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c28-Q6-fWe">
+                                <rect key="frame" x="16" y="350" width="343" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                <state key="normal" title="Actualizar">
+                                    <color key="titleColor" white="0.96793619789999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateProfile:" destination="oie-Sp-RYh" eventType="touchUpInside" id="M9m-nm-6ZI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RX5-Od-p93"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="pHM-o5-0u4">
+                    <navigationItem key="navigationItem" title="Mi Perfíl" id="pHM-o5-0u4">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aSR-IN-gdA"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="logout" id="ptY-Lm-j8m">
                             <connections>
@@ -325,13 +350,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuBarButtonItem" destination="aSR-IN-gdA" id="Jql-KY-G6y"/>
+                        <outlet property="nicknameTextField" destination="18W-9N-5o8" id="wSV-yw-bLa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4c-2Y-mHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3728.8000000000002" y="859.52023988005999"/>
+            <point key="canvasLocation" x="3748" y="886.50674662668678"/>
         </scene>
-        <!--Last News-->
+        <!--Últimas noticias-->
         <scene sceneID="TVS-hw-fQ2">
             <objects>
                 <tableViewController id="1In-UM-1vT" customClass="LastNewsTableViewController" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
@@ -354,7 +380,7 @@
                             <outlet property="delegate" destination="1In-UM-1vT" id="VoN-7T-Wfs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Last News" id="HDl-cu-2HR">
+                    <navigationItem key="navigationItem" title="Últimas noticias" id="HDl-cu-2HR">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="0hi-zy-MJL"/>
                     </navigationItem>
                     <connections>
@@ -399,7 +425,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mz-J7-gZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2789.5999999999999" y="859.52023988005999"/>
+            <point key="canvasLocation" x="2790" y="887"/>
         </scene>
     </scenes>
     <resources>
@@ -414,6 +440,6 @@
         <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Ff-u7-RNw"/>
+        <segue reference="Vp0-Dk-5CF"/>
     </inferredMetricsTieBreakers>
 </document>

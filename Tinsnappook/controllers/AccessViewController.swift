@@ -22,9 +22,13 @@ class AccessViewController: UIViewController {
         configActivityIndicator = ConfigActivityIndicator()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        if let _ = Auth.auth().currentUser {
+            performSegue(withIdentifier: "goMainVC", sender: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
