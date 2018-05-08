@@ -23,7 +23,8 @@ class AccessViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-       navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
