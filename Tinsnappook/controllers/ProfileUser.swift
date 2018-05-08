@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileUser: UIViewController {
     @IBOutlet var menuBarButtonItem: UIBarButtonItem!
-    @IBOutlet var logoutBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class ProfileUser: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
 
     /*
     // MARK: - Navigation
@@ -34,4 +35,17 @@ class ProfileUser: UIViewController {
     }
     */
 
+    @IBAction func didTapSignOut(_ sender: UIBarButtonItem) {
+        // start signout
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        // end signout
+        if let accessView = storyboard?.instantiateViewController(withIdentifier: "accessView") as? AccessViewController {
+            navigationController?.show(accessView, sender: nil)
+        }
+    }
 }

@@ -14,7 +14,7 @@
         <!--Access View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AccessViewController" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accessView" id="BYZ-38-t0r" customClass="AccessViewController" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,10 +317,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="pHM-o5-0u4">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="aSR-IN-gdA"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="logout" id="ptY-Lm-j8m"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="logout" id="ptY-Lm-j8m">
+                            <connections>
+                                <action selector="didTapSignOut:" destination="oie-Sp-RYh" id="845-SE-KkT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="logoutBarButtonItem" destination="ptY-Lm-j8m" id="smS-WJ-mbY"/>
                         <outlet property="menuBarButtonItem" destination="aSR-IN-gdA" id="Jql-KY-G6y"/>
                     </connections>
                 </viewController>

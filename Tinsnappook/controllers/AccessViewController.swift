@@ -22,6 +22,10 @@ class AccessViewController: UIViewController {
         configActivityIndicator = ConfigActivityIndicator()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+       navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
