@@ -14,11 +14,7 @@ class LastNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if revealViewController() != nil {
-            menuBarButtonItem.target = revealViewController()
-            menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
-            view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-        }        
+        ConfigRevealView.addTarget(to: menuBarButtonItem, in: revealViewController(), for: view)
     }
 
     override func didReceiveMemoryWarning() {

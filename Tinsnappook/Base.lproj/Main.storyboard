@@ -267,6 +267,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="nJL-Vd-3i5" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="p7l-73-0x3"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="40" id="vnN-qd-7nO">
                                         <rect key="frame" x="0.0" y="240" width="375" height="40"/>
@@ -302,7 +305,30 @@
             </objects>
             <point key="canvasLocation" x="2018" y="116"/>
         </scene>
-        <!--Last News Table View Controller-->
+        <!--My Profile-->
+        <scene sceneID="OGZ-BZ-3Ps">
+            <objects>
+                <viewController id="oie-Sp-RYh" customClass="ProfileUser" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hrK-ua-PHB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RX5-Od-p93"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Profile" id="pHM-o5-0u4">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="aSR-IN-gdA"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="logout" id="ptY-Lm-j8m"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logoutBarButtonItem" destination="ptY-Lm-j8m" id="smS-WJ-mbY"/>
+                        <outlet property="menuBarButtonItem" destination="aSR-IN-gdA" id="Jql-KY-G6y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4c-2Y-mHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3728.8000000000002" y="859.52023988005999"/>
+        </scene>
+        <!--Last News-->
         <scene sceneID="TVS-hw-fQ2">
             <objects>
                 <tableViewController id="1In-UM-1vT" customClass="LastNewsTableViewController" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
@@ -325,7 +351,7 @@
                             <outlet property="delegate" destination="1In-UM-1vT" id="VoN-7T-Wfs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HDl-cu-2HR">
+                    <navigationItem key="navigationItem" title="Last News" id="HDl-cu-2HR">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="0hi-zy-MJL"/>
                     </navigationItem>
                     <connections>
@@ -354,6 +380,24 @@
             </objects>
             <point key="canvasLocation" x="2791" y="-1206"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="V6Q-CJ-Hbt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nJL-Vd-3i5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WsZ-xi-Xmf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oie-Sp-RYh" kind="relationship" relationship="rootViewController" id="uli-uT-PPI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Mz-J7-gZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2789.5999999999999" y="859.52023988005999"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="320" height="480"/>
@@ -361,11 +405,12 @@
         <image name="feed" width="32" height="32"/>
         <image name="friends" width="32" height="32"/>
         <image name="logo-social-network" width="217" height="117"/>
+        <image name="logout" width="32" height="32"/>
         <image name="menu" width="22" height="22"/>
         <image name="post" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vp0-Dk-5CF"/>
+        <segue reference="3Ff-u7-RNw"/>
     </inferredMetricsTieBreakers>
 </document>
