@@ -84,5 +84,34 @@ class AccessViewController: UIViewController {
         }
     }
     
+    
+    /// Request change password
+    ///
+    /// - Parameter sender: UIButton that trigger the action
+    @IBAction func didRequestPasswordReset(_ sender: UIButton) {
+        let ac = UIAlertController(title: "Recovery password", message: "Introduce your email", preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Recovery", style: .default, handler: { [unowned self] (action) in
+            let textField = ac.textFields![0]
+            if let email = textField.text {
+                self.configActivityIndicator.start(view: self.view)
+                
+                // Start reset password
+                Auth.auth().sendPasswordReset(withEmail: email, completion: { [unowned self] (error: Error?) in
+                    self.configActivityIndicator.stop()
+                    
+                    if let error = error {
+                        AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: error.localizedDescription, controller: self)
+                        return
+                    }
+                    AlertControllerHelper().showAlertWithDefaultAction(title: "Recovery password", message: "Please, update tu password from the link in your email tray", controller: self)
+                }) // End reset recovery
+            }
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
+    }
 }
 

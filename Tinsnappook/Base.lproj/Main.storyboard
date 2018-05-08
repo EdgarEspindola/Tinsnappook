@@ -72,6 +72,9 @@
                                 <state key="normal" title="He olvidado la contraseña">
                                     <color key="titleColor" red="0.0" green="0.75294117650000003" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didRequestPasswordReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pYg-ez-D9g"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="tZM-1R-dGn">
                                 <rect key="frame" x="46" y="334" width="282" height="33"/>
