@@ -7,8 +7,13 @@ target 'Tinsnappook' do
 
   # Pods for Tinsnappook
   pod 'Firebase/Core'
+  
   # [START auth_pod]
   pod 'Firebase/Auth'
   # [END auth_pod]
+  
+  # [START database]
+  pod 'Firebase/Database'
+  # [END databse]
 
 end
