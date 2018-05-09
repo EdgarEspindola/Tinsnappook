@@ -20,6 +20,8 @@
 		8492A13320A0EB4800729C60 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13220A0EB4800729C60 /* AlertControllerHelper.swift */; };
 		8492A13720A0F07700729C60 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13620A0F07600729C60 /* SWRevealViewController.m */; };
 		8492A13A20A0FBED00729C60 /* LastNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A13920A0FBED00729C60 /* LastNewsTableViewController.swift */; };
+		84D158E620A3A72F00B0957B /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 84D158E520A3A72F00B0957B /* ToDo */; };
+		84D158E820A3AACA00B0957B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D158E720A3AACA00B0957B /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8492A13620A0F07600729C60 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		8492A13820A0F0C800729C60 /* RevealViewBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RevealViewBridging.h; sourceTree = "<group>"; };
 		8492A13920A0FBED00729C60 /* LastNewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNewsTableViewController.swift; sourceTree = "<group>"; };
+		84D158E520A3A72F00B0957B /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		84D158E720A3AACA00B0957B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		8492A11A20A0C59700729C60 /* Tinsnappook */ = {
 			isa = PBXGroup;
 			children = (
+				84D158E520A3A72F00B0957B /* ToDo */,
 				8492A11B20A0C59700729C60 /* AppDelegate.swift */,
 				8492A13B20A1051300729C60 /* controllers */,
 				8492A11F20A0C59700729C60 /* Main.storyboard */,
@@ -113,6 +118,7 @@
 		8492A13B20A1051300729C60 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84D158E720A3AACA00B0957B /* PostViewController.swift */,
 				840F3A3920A1E9C4000B46E0 /* ProfileUser.swift */,
 				8492A11D20A0C59700729C60 /* AccessViewController.swift */,
 				8492A13920A0FBED00729C60 /* LastNewsTableViewController.swift */,
@@ -198,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8492A12620A0C59800729C60 /* LaunchScreen.storyboard in Resources */,
+				84D158E620A3A72F00B0957B /* ToDo in Resources */,
 				8492A12E20A0DBC300729C60 /* GoogleService-Info.plist in Resources */,
 				8492A12320A0C59800729C60 /* Assets.xcassets in Resources */,
 				8492A12120A0C59700729C60 /* Main.storyboard in Resources */,
@@ -254,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D158E820A3AACA00B0957B /* PostViewController.swift in Sources */,
 				8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */,
 				840F3A3C20A1EAB7000B46E0 /* ConfigRevealView.swift in Sources */,
 				8492A13020A0E45A00729C60 /* ConfigActivityIndicator.swift in Sources */,

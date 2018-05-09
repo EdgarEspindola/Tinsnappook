@@ -382,6 +382,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Últimas noticias" id="HDl-cu-2HR">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="0hi-zy-MJL"/>
+                        <barButtonItem key="rightBarButtonItem" image="post" id="uXf-Rq-nP5">
+                            <connections>
+                                <segue destination="FKe-J9-3Xw" kind="show" id="t3k-fx-wEM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuBarButtonItem" destination="0hi-zy-MJL" id="sOr-Ek-V7e"/>
@@ -390,6 +395,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTp-I4-dl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3748" y="-1206"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="TXv-CN-cqW">
+            <objects>
+                <viewController id="FKe-J9-3Xw" customClass="PostViewController" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6gS-l6-BAi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="send-photo" translatesAutoresizingMaskIntoConstraints="NO" id="kzT-76-ugX">
+                                <rect key="frame" x="87" y="64" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmS-R5-eaQ">
+                                <rect key="frame" x="16" y="269" width="343" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-c6-P4A">
+                                <rect key="frame" x="16" y="375" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Publicar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createPost:" destination="FKe-J9-3Xw" eventType="touchUpInside" id="zPm-kp-idU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RHS-mY-BcT"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="kzT-76-ugX" id="H2o-ol-aoY"/>
+                        <outlet property="textView" destination="vmS-R5-eaQ" id="EUJ-Dz-9EL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vdm-Q7-dB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4468" y="-1207.6461769115442"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3sF-OW-Pwn">
@@ -438,6 +487,7 @@
         <image name="menu" width="22" height="22"/>
         <image name="post" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
+        <image name="send-photo" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vp0-Dk-5CF"/>
