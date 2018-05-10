@@ -13,8 +13,11 @@ class PostsService {
     
     let reference = Database.database().reference(withPath: "posts")
     
-    func create(post: Post) {
+    func create(post: Post, _ feedback: @escaping (_ error: Error?) -> Void) {
         let postRef = reference.childByAutoId()
-        postRef.setValue(post.toAnyObject())
+        postRef.setValue(post.toAnyObject()) { (error:
+            Error?, reference: DatabaseReference) in
+            feedback(error)
+        }
     }
 }

@@ -13,6 +13,7 @@ class PostViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
     let postsService = PostsService()
+    let configActivityIndicator = ConfigActivityIndicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,25 @@ class PostViewController: UIViewController {
         let idUser = Auth.auth().currentUser?.uid
         let post = Post(message: message!, userID: idUser!)
         
-        postsService.create(post: post)
+        configActivityIndicator.start(view: view)
+        postsService.create(post: post) { [unowned self] (error: Error?) in
+            self.configActivityIndicator.stop()
+            let alertHelper = AlertControllerHelper()
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    alertHelper.showAlertWithDefaultAction(title: "Opps, ha habido un fallo", message: error.localizedDescription, controller: self)
+                    return
+                }
+            } else {
+                DispatchQueue.main.async {
+                    alertHelper.showAlertWithDefaultAction(title: "Post publicado", message: "Post publicado de manera correcta", controller: self)
+                    self.textView.text = ""
+                    return
+                }
+            }
+        } // End create posts
+        return
     }
     
 
