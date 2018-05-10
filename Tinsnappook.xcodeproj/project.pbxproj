@@ -13,7 +13,7 @@
 		8446B2EE20A488C3001E70BE /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2ED20A488C3001E70BE /* PostsService.swift */; };
 		8446B2F020A4D6AC001E70BE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2EF20A4D6AC001E70BE /* PostTableViewCell.swift */; };
 		8446B2F320A4DB14001E70BE /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2F220A4DB14001E70BE /* Friend.swift */; };
-		8446B2F520A4DCEC001E70BE /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2F420A4DCEC001E70BE /* UsersService.swift */; };
+		8446B2F520A4DCEC001E70BE /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2F420A4DCEC001E70BE /* FriendsService.swift */; };
 		8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11B20A0C59700729C60 /* AppDelegate.swift */; };
 		8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11D20A0C59700729C60 /* AccessViewController.swift */; };
 		8492A12120A0C59700729C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8492A11F20A0C59700729C60 /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 		8446B2ED20A488C3001E70BE /* PostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
 		8446B2EF20A4D6AC001E70BE /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8446B2F220A4DB14001E70BE /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		8446B2F420A4DCEC001E70BE /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		8446B2F420A4DCEC001E70BE /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
 		8492A11820A0C59700729C60 /* Tinsnappook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinsnappook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8492A11B20A0C59700729C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8492A11D20A0C59700729C60 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				8446B2ED20A488C3001E70BE /* PostsService.swift */,
-				8446B2F420A4DCEC001E70BE /* UsersService.swift */,
+				8446B2F420A4DCEC001E70BE /* FriendsService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 				840F3A3A20A1E9C4000B46E0 /* ProfileUser.swift in Sources */,
 				8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */,
 				84D158EA20A3B4E800B0957B /* Post.swift in Sources */,
-				8446B2F520A4DCEC001E70BE /* UsersService.swift in Sources */,
+				8446B2F520A4DCEC001E70BE /* FriendsService.swift in Sources */,
 				8446B2F020A4D6AC001E70BE /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
