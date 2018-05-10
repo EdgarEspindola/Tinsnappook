@@ -7,16 +7,44 @@
 //
 
 import UIKit
+import Firebase
 
 class PostViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
+    let postsService = PostsService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print("En viewDidLoad PostViewController")
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("En viewDidAppear PostViewController")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("en viewWillAppear PostViewController")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("en viewDidDisappear PostViewController")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("en viewWillDisappear PostViewController")
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -24,6 +52,11 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func createPost(_ sender: UIButton) {
+        let message = textView.text
+        let idUser = Auth.auth().currentUser?.uid
+        let post = Post(message: message!, userID: idUser!)
+        
+        postsService.create(post: post)
     }
     
 
@@ -37,4 +70,7 @@ class PostViewController: UIViewController {
     }
     */
 
+    deinit {
+        print("En deinit de PostViewController")
+    }
 }

@@ -31,4 +31,10 @@ struct Post {
         self.userID = userID
     }
     
+    func toAnyObject() -> Any {
+        return [
+            "message": message,
+            "userID": userID
+        ]
+    }
 }
