@@ -11,9 +11,14 @@ import Foundation
 
 class ConfigActivityIndicator: NSObject {
     var activityIndicator: UIActivityIndicatorView!
+    let view: UIView
     
-    private func configureFor(view: UIView) {
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    init(view: UIView) {
+        self.view = view
+    }
+    
+    private func configureFor() {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = .whiteLarge        
@@ -21,8 +26,8 @@ class ConfigActivityIndicator: NSObject {
         return
     }
     
-    func start(view: UIView) {
-        configureFor(view: view)
+    func start() {
+        configureFor()
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         return
