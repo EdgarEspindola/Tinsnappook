@@ -11,6 +11,9 @@
 		840F3A3A20A1E9C4000B46E0 /* ProfileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F3A3920A1E9C4000B46E0 /* ProfileUser.swift */; };
 		840F3A3C20A1EAB7000B46E0 /* ConfigRevealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F3A3B20A1EAB7000B46E0 /* ConfigRevealView.swift */; };
 		8446B2EE20A488C3001E70BE /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2ED20A488C3001E70BE /* PostsService.swift */; };
+		8446B2F020A4D6AC001E70BE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2EF20A4D6AC001E70BE /* PostTableViewCell.swift */; };
+		8446B2F320A4DB14001E70BE /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2F220A4DB14001E70BE /* Friend.swift */; };
+		8446B2F520A4DCEC001E70BE /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B2F420A4DCEC001E70BE /* UsersService.swift */; };
 		8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11B20A0C59700729C60 /* AppDelegate.swift */; };
 		8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492A11D20A0C59700729C60 /* AccessViewController.swift */; };
 		8492A12120A0C59700729C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8492A11F20A0C59700729C60 /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 		840F3A3920A1E9C4000B46E0 /* ProfileUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUser.swift; sourceTree = "<group>"; };
 		840F3A3B20A1EAB7000B46E0 /* ConfigRevealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRevealView.swift; sourceTree = "<group>"; };
 		8446B2ED20A488C3001E70BE /* PostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
+		8446B2EF20A4D6AC001E70BE /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		8446B2F220A4DB14001E70BE /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		8446B2F420A4DCEC001E70BE /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		8492A11820A0C59700729C60 /* Tinsnappook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinsnappook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8492A11B20A0C59700729C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8492A11D20A0C59700729C60 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
@@ -68,8 +74,17 @@
 			isa = PBXGroup;
 			children = (
 				8446B2ED20A488C3001E70BE /* PostsService.swift */,
+				8446B2F420A4DCEC001E70BE /* UsersService.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		8446B2F120A4D6BB001E70BE /* views */ = {
+			isa = PBXGroup;
+			children = (
+				8446B2EF20A4D6AC001E70BE /* PostTableViewCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		8492A10F20A0C59700729C60 = {
@@ -99,6 +114,7 @@
 				8492A13820A0F0C800729C60 /* RevealViewBridging.h */,
 				8492A13420A0F07600729C60 /* SWRevealViewController */,
 				8492A13B20A1051300729C60 /* controllers */,
+				8446B2F120A4D6BB001E70BE /* views */,
 				84D158EB20A3B85200B0957B /* models */,
 				8446B2EC20A47DA8001E70BE /* services */,
 				8492A13120A0E46B00729C60 /* helpers */,
@@ -144,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				84D158E920A3B4E800B0957B /* Post.swift */,
+				8446B2F220A4DB14001E70BE /* Friend.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -285,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8446B2F320A4DB14001E70BE /* Friend.swift in Sources */,
 				84D158E820A3AACA00B0957B /* PostViewController.swift in Sources */,
 				8492A11E20A0C59700729C60 /* AccessViewController.swift in Sources */,
 				8446B2EE20A488C3001E70BE /* PostsService.swift in Sources */,
@@ -296,6 +314,8 @@
 				840F3A3A20A1E9C4000B46E0 /* ProfileUser.swift in Sources */,
 				8492A11C20A0C59700729C60 /* AppDelegate.swift in Sources */,
 				84D158EA20A3B4E800B0957B /* Post.swift in Sources */,
+				8446B2F520A4DCEC001E70BE /* UsersService.swift in Sources */,
+				8446B2F020A4D6AC001E70BE /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,7 @@
 import UIKit
 import Firebase
 
-class PostsService {
-    
+class PostsService {    
     private let reference = Database.database().reference(withPath: "posts")
     private var handlesDatabaseReferences = [DatabaseHandle]()
     

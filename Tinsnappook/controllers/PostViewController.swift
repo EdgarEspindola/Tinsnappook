@@ -55,7 +55,7 @@ class PostViewController: UIViewController {
     @IBAction func createPost(_ sender: UIButton) {
         let message = textView.text
         let idUser = Auth.auth().currentUser?.uid
-        let post = Post(message: message!, userID: idUser!)
+        let post = Post(uid: nil, message: message!, userID: idUser!)
         
         configActivityIndicator.start()
         postsService.create(post: post) { [unowned self] (error: Error?) in

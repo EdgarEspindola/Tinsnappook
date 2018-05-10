@@ -10,11 +10,13 @@ import Foundation
 import Firebase
 
 struct Post {
+    let uid: String?
     //let image: UIImage?
     let message: String
     let userID: String
     
-    init(message: String, userID: String) {
+    init(uid: String?, message: String, userID: String) {
+        self.uid = uid
         self.message = message
         self.userID = userID
     }
@@ -27,12 +29,14 @@ struct Post {
                 return nil
         }
         
+        self.uid = snapshot.key
         self.message = message
-        self.userID = userID
+        self.userID = userID        
     }
     
     func toAnyObject() -> Any {
         return [
+            "uid": uid,
             "message": message,
             "userID": userID
         ]
