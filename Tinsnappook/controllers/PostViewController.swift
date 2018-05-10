@@ -13,13 +13,13 @@ class PostViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
     let postsService = PostsService()
-    let configActivityIndicator = ConfigActivityIndicator()
+    var configActivityIndicator: ConfigActivityIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configActivityIndicator = ConfigActivityIndicator(view: view)
 
         print("En viewDidLoad PostViewController")
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,7 +57,7 @@ class PostViewController: UIViewController {
         let idUser = Auth.auth().currentUser?.uid
         let post = Post(message: message!, userID: idUser!)
         
-        configActivityIndicator.start(view: view)
+        configActivityIndicator.start()
         postsService.create(post: post) { [unowned self] (error: Error?) in
             self.configActivityIndicator.stop()
             let alertHelper = AlertControllerHelper()
@@ -89,7 +89,7 @@ class PostViewController: UIViewController {
     }
     */
 
-    deinit {
+    deinit {        
         print("En deinit de PostViewController")
     }
 }

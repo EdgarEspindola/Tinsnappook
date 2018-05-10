@@ -7,19 +7,53 @@
 //
 
 import UIKit
+import Firebase
 
 class LastNewsTableViewController: UITableViewController {
     @IBOutlet var menuBarButtonItem: UIBarButtonItem!
     
+    let postsService = PostsService()
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         ConfigRevealView.addTarget(to: menuBarButtonItem, in: revealViewController(), for: view)
+        
+        print("Se ejecuta viewDidLoad LastNewsTableViewController")
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("En viewDidAppear LastNewsTableViewController")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        postsService.allPosts(clearPosts: { [unowned self] in
+            self.posts.removeAll()
+        }) { [unowned self] (post: Post) in
+                self.posts.append(post)
+        }
+        
+        print("en viewWillAppear LastNewsTableViewController")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("en viewDidDisappear LastNewsTableViewController")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("en viewWillDisappear LastNewsTableViewController")
+    }
+    
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning()        
     }
 
     // MARK: - Table view data source
@@ -88,5 +122,10 @@ class LastNewsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    deinit {
+        postsService.removeReferences()
+        print("En el metodo deinit LastNewsTableViewController")
+    }
 
 }
