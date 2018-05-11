@@ -23,10 +23,10 @@ class FriendsService {
         }
     }
     
-    func findBy(post: Post, updateCell: @escaping (_ friend: Friend) -> Void) {
-        reference.child(post.userID).observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
+    func findBy(uid: String, completion: @escaping (_ friend: Friend) -> Void) {
+        reference.child(uid).observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
             guard let friend = Friend(snapshot: snapshot) else { return }
-            updateCell(friend)
+            completion(friend)
         }
     }
 }

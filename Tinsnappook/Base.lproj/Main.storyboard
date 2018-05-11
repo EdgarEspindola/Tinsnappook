@@ -346,10 +346,10 @@
                                 <rect key="frame" x="190" y="350" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lh-Pl-D8a">
-                                <rect key="frame" x="245" y="355" width="62" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hombre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lh-Pl-D8a">
+                                <rect key="frame" x="245" y="355" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -386,8 +386,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="birthDateButton" destination="luf-fp-bAi" id="Srm-1f-TJI"/>
+                        <outlet property="genderLabel" destination="6Lh-Pl-D8a" id="Vtv-CR-TTu"/>
+                        <outlet property="genderSwitch" destination="7LR-5Y-a9v" id="yw4-CD-zkB"/>
                         <outlet property="menuBarButtonItem" destination="aSR-IN-gdA" id="Jql-KY-G6y"/>
                         <outlet property="nicknameTextField" destination="18W-9N-5o8" id="wSV-yw-bLa"/>
+                        <outlet property="userImageView" destination="7sA-4s-XCp" id="lRe-PW-06s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4c-2Y-mHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="3748" y="886.50674662668678"/>
         </scene>
-        <!--View Controller-->
+        <!--Date Picker View Controller-->
         <scene sceneID="rVo-OE-7lE">
             <objects>
-                <viewController id="h2c-po-v2a" sceneMemberID="viewController">
+                <viewController id="h2c-po-v2a" customClass="DatePickerViewController" customModule="Tinsnappook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFQ-dx-FkI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -425,11 +429,17 @@
                                 <state key="normal" title="Aceptar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dateSelected:" destination="h2c-po-v2a" eventType="touchUpInside" id="YEt-3e-Gp7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JsK-CO-haY"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="yNA-me-4qE" id="WWv-RR-aRs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygk-HF-TKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

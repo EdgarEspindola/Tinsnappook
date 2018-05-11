@@ -13,13 +13,13 @@ import Firebase
 struct Friend {
     let uid: String?
     let userName: String
-    //let photoURL: String
-    //let genero: Bool
-    //let dateBirth: String
+    var photoURL: String?
+    var genero: Bool?
+    var dateBirth: String?
     
     init(uid: String?, userName: String) {
-        self.userName = userName
         self.uid = uid
+        self.userName = userName
     }
     
     init?(snapshot: DataSnapshot) {
@@ -30,7 +30,7 @@ struct Friend {
         }
         
         self.uid = snapshot.key
-        self.userName = userName        
+        self.userName = userName
     }
     
     func toAnyObject() -> Any {

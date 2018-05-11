@@ -85,7 +85,7 @@ class LastNewsTableViewController: UITableViewController {
         }
         
         DispatchQueue.global(qos: .userInteractive).async { [unowned self] in
-            self.friendsService.findBy(post: post, updateCell: feedback)
+            self.friendsService.findBy(uid: post.userID, completion: feedback)
         }
         
         return cell
