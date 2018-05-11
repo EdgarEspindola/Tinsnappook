@@ -4,6 +4,7 @@
 //
 //  Created by Usuario on 07/05/18.
 //  Copyright © 2018 edgarespindola. All rights reserved.
+// Email: edgareduardoespindola@gmail.com
 //
 
 import UIKit
@@ -12,11 +13,14 @@ import Firebase
 class LastNewsTableViewController: UITableViewController {
     @IBOutlet var menuBarButtonItem: UIBarButtonItem!
     
-    let postsService = PostsService()
+    var postsService: PostsService!
+    var friendsService: FriendsService!
     var posts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        postsService = PostsService()
+        friendsService = FriendsService()
         ConfigRevealView.addTarget(to: menuBarButtonItem, in: revealViewController(), for: view)
         
         print("Se ejecuta viewDidLoad LastNewsTableViewController")
@@ -31,10 +35,16 @@ class LastNewsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        postsService.allPosts(clearPosts: { [unowned self] in
-            self.posts.removeAll()
-        }) { [unowned self] (post: Post) in
+        DispatchQueue.global().async { [unowned self] in
+            self.postsService.allPosts(clearPosts: { [unowned self] in
+                self.posts.removeAll()
+            }) { [unowned self] (post: Post) in
                 self.posts.append(post)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
         
         print("en viewWillAppear LastNewsTableViewController")
@@ -59,24 +69,28 @@ class LastNewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return posts.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        let post = posts[indexPath.row]
+        
+        let feedback = { (friend: Friend) in
+                cell.loadData(friend: friend, post: post)
+        }
+        
+        DispatchQueue.global(qos: .userInteractive).async { [unowned self] in
+            self.friendsService.findBy(post: post, updateCell: feedback)
+        }
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

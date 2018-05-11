@@ -21,5 +21,12 @@ class FriendsService {
             Error?, reference: DatabaseReference) in
             feedback(error)
         }
-    }    
+    }
+    
+    func findBy(post: Post, updateCell: @escaping (_ friend: Friend) -> Void) {
+        reference.child(post.userID).observeSingleEvent(of: .value) { (snapshot: DataSnapshot) in
+            guard let friend = Friend(snapshot: snapshot) else { return }
+            updateCell(friend)
+        }
+    }
 }
