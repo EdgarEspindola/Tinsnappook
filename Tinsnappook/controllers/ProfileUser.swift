@@ -37,17 +37,23 @@ class ProfileUser: UIViewController {
         let uid = Auth.auth().currentUser?.uid
         
         friendsService = FriendsService()
-        configActivityIndicator.start()
+        //configActivityIndicator.start()
         
         DispatchQueue.global().async { [unowned self] in
             self.friendsService.findBy(uid: uid!) { [unowned self] (friend: Friend) in
                 self.loadImage(friend: friend)
-                self.loadBirthDate(date: friend.dateBirth)
+                
+                if self.birthDateButton.currentTitle == "dd/MM/yyyy" {
+                   self.loadBirthDate(date: friend.dateBirth)
+                }
+                
                 self.loadGender(gender: friend.genero)
                 
-                DispatchQueue.main.async { [unowned self] in
-                    self.nicknameTextField.text = friend.userName
-                    self.configActivityIndicator.stop()
+                if self.nicknameTextField.text == "" {
+                    DispatchQueue.main.async { [unowned self] in
+                        self.nicknameTextField.text = friend.userName
+                        //self.configActivityIndicator.stop()
+                    }
                 }
             }
         }
@@ -105,15 +111,33 @@ class ProfileUser: UIViewController {
     }
     
     @IBAction func updateProfile(_ sender: UIButton) {
-        if let nickname = nicknameTextField.text {
+        // Unico campo obligatorio
+        if let username = nicknameTextField.text {
+            let genero = genderSwitch.isOn
+            let dateBirth = birthDateButton.currentTitle!
+            let uidCurrentUser = Auth.auth().currentUser?.uid
+            let friend = Friend(uid: uidCurrentUser, userName: username, genero: genero, dateBirth: dateBirth)
+            
             configActivityIndicator.start()
-            
-            // Start profile change
-//            let changeRequest: UserProfileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-            
+            friendsService.create(friend: friend) { [unowned self] (error: Error?) in
+                self.configActivityIndicator.stop()
+                if let error = error {
+                    AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: error.localizedDescription, controller: self)
+                } else {
+                    AlertControllerHelper().showAlertWithDefaultAction(title: "Actualizacion exitosa", message: "Tus datos fueron actualizados correctamente", controller: self)
+                }
+            }
             
         } else {
-            AlertControllerHelper().showAlertWithDefaultAction(title: "Nickname vacío", message: "Proporcione un nickname", controller: self)
+            AlertControllerHelper().showAlertWithDefaultAction(title: "Nombre de usuario vacío", message: "Proporcione un nombre de usuario", controller: self)
+        }
+    }
+    
+    @IBAction func switchGenderChanged(_ sender: UISwitch) {
+        if genderSwitch.isOn {
+            genderLabel.text = "Mujer"
+        } else {
+            genderLabel.text = "Hombre"
         }
     }
     

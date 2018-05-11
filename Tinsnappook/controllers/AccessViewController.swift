@@ -26,9 +26,10 @@ class AccessViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        friendsService = FriendsService()
-        navigationController?.setNavigationBarHidden(true, animated: false)
         configActivityIndicator = ConfigActivityIndicator(view: view)
+        friendsService = FriendsService()
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         print("en viewWillAppear AccessViewcontroller")
         return
@@ -40,7 +41,6 @@ class AccessViewController: UIViewController {
         print("En viewDidAppear AccessViewController")
         
         if let _ = Auth.auth().currentUser {
-            print("Relizando segue before....")
             performSegue(withIdentifier: "goMainVC", sender: nil)
             return
         }
@@ -170,7 +170,7 @@ class AccessViewController: UIViewController {
     /// - Parameter user: El usuario que acaba de registrarse
     private func createFriendDefault(user: User) {
         let userName = user.displayName ?? ""
-        let friend = Friend(uid: user.uid, userName: userName)
+        let friend = Friend(uid: user.uid, userName: userName, genero: false, dateBirth: "Desconocida")
         
         friendsService.create(friend: friend) { (error: Error?) in
             if let error = error {

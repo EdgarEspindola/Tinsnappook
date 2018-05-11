@@ -20,7 +20,7 @@ class FriendsService {
         friendRef.setValue(friend.toAnyObject()) { (error:
             Error?, reference: DatabaseReference) in
             feedback(error)
-        }
+        }        
     }
     
     func findBy(uid: String, completion: @escaping (_ friend: Friend) -> Void) {
@@ -28,5 +28,5 @@ class FriendsService {
             guard let friend = Friend(snapshot: snapshot) else { return }
             completion(friend)
         }
-    }
+    }    
 }
