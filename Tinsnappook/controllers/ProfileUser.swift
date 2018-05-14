@@ -20,7 +20,7 @@ class ProfileUser: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     var configActivityIndicator: ConfigActivityIndicator!
     var friendsService: FriendsService!
-    
+    var uidUser: String!
     var dateBirth: Date?
     
     override func viewDidLoad() {
@@ -34,13 +34,13 @@ class ProfileUser: UIViewController, UIImagePickerControllerDelegate, UINavigati
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let uid = Auth.auth().currentUser?.uid
+        uidUser = (Auth.auth().currentUser?.uid)!
         
         friendsService = FriendsService()
         //configActivityIndicator.start()
         
         DispatchQueue.global().async { [unowned self] in
-            self.friendsService.findBy(uid: uid!) { [unowned self] (friend: Friend) in
+            self.friendsService.findBy(uid: self.uidUser) { [unowned self] (friend: Friend) in
                 self.loadImage(friend: friend)
                 
                 if self.birthDateButton.currentTitle == "dd/MM/yyyy" {
@@ -115,8 +115,7 @@ class ProfileUser: UIViewController, UIImagePickerControllerDelegate, UINavigati
         if let username = nicknameTextField.text {
             let genero = genderSwitch.isOn
             let dateBirth = birthDateButton.currentTitle!
-            let uidCurrentUser = Auth.auth().currentUser?.uid
-            let friend = Friend(uid: uidCurrentUser, userName: username, genero: genero, dateBirth: dateBirth)
+            let friend = Friend(uid: uidUser, userName: username, genero: genero, dateBirth: dateBirth)
             let profilePhotoData = UIImageJPEGRepresentation(userImageView.image!, 0.8)
             
             configActivityIndicator.start()
@@ -126,8 +125,7 @@ class ProfileUser: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     self.configActivityIndicator.stop()
                     AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: error.localizedDescription, controller: self)
                 } else {
-                    let uid = Auth.auth().currentUser!.uid
-                    self.friendsService.uploadPhotoProfile(uid: uid, dataFile: profilePhotoData!, { (error: Error?) in
+                    self.friendsService.uploadPhotoProfile(uid: self.uidUser, dataFile: profilePhotoData!, { (error: Error?) in
                         self.configActivityIndicator.stop()
                         
                         if let error = error {
@@ -178,17 +176,26 @@ class ProfileUser: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     // MARK: Private Methods
     private func loadImage(friend: Friend) {
-        if let image = friend.photoURL {
-            // MOSTRAR LA FOTO DE PERFIL DEL USUARIO
-        } else if userImageView.image == nil {
-            DispatchQueue.main.async { [unowned self] in
-                self.userImageView.image = UIImage(named: "no-friend")
-            }
+        if userImageView.image != nil {
+            return
         }
         
         DispatchQueue.main.async { [unowned self] in
+            self.userImageView.image = UIImage(named: "no-friend")
             self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width / 2
             self.userImageView.clipsToBounds = true
+        }
+        
+        friendsService.downloadPhotoProfile(uid: friend.uid!) { [unowned self] (error: Error?, data: Data?) in
+            if let error = error {
+                print("Error al descargar la foto de perfíl: \(error.localizedDescription)")
+                return
+                
+            } else {
+                DispatchQueue.main.async { [unowned self] in
+                    self.userImageView.image = UIImage(data: data!)
+                }
+            }
         }
     }
     

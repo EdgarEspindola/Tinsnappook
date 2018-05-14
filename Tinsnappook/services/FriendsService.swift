@@ -34,14 +34,14 @@ class FriendsService {
     }
     
     func uploadPhotoProfile(uid: String, dataFile: Data, _ completion: @escaping (Error?) -> Void) {
-        let friendRef = storageReference.child(uid).child("profile-photo.jpg")
+        let storageRef = storageReference.child("profiles/\(uid).jpg")
         
         // Create the file metadata
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         
         // Upload file and metadata to the object
-        let uploadTask = storageReference.putData(dataFile, metadata: metadata)
+        let uploadTask = storageRef.putData(dataFile, metadata: metadata)
         
         // Listen for state changes, errors, and completion of the upload.
         uploadTask.observe(.resume) { (snapshot) in
@@ -63,7 +63,7 @@ class FriendsService {
         }
         
         uploadTask.observe(.failure) { (snapshot) in
-            if let error = snapshot.error as? NSError {
+            if let error = snapshot.error as NSError? {
                 switch (StorageErrorCode(rawValue: error.code)!) {
                 case .objectNotFound:
                     // File doesn´t exist
@@ -89,17 +89,17 @@ class FriendsService {
         }
     }
 
-    func downloadPhotoProfile(uid: String, _ completion: @escaping (Error?) -> Void) {
-        let pathReference = storageReference.child(uid).child("profile-photo.jpg")
+    func downloadPhotoProfile(uid: String, _ completion: @escaping (Error?, Data?) -> Void) {
+        let pathReference = storageReference.child("profiles/\(uid).jpg")
         
-        pathReference.getData(maxSize: 100 * 1024 * 1024) { (data: Data?, error: Error?) in
+        pathReference.getData(maxSize: 100 * 1024 * 1024) { (data: Data?, error: Error?) in           
 //            if let error = error {
 //                // Uh-oh, an error ocurred!
 //            } else {
 //                // Data for es returned
 //                let image = UIImage(data: data!)
 //            }
-            completion(error)
+            completion(error, data)
         }
     }
     

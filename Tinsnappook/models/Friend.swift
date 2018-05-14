@@ -13,7 +13,7 @@ import Firebase
 struct Friend {
     let uid: String?
     let userName: String
-    var photoURL: String?
+    var photo: UIImage?
     var genero: Bool
     var dateBirth: String
     

@@ -4,6 +4,7 @@
 //
 //  Created by Usuario on 07/05/18.
 //  Copyright © 2018 edgarespindola. All rights reserved.
+//  Email: edgareduardoespindola@gmail.com
 //
 
 import UIKit
