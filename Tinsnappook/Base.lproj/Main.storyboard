@@ -317,9 +317,6 @@
                                 <rect key="frame" x="67" y="64" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="5Po-pc-0WR" appends="YES" id="fbp-mH-mON"/>
-                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tu nickname" textAlignment="natural" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="18W-9N-5o8">
                                 <rect key="frame" x="16" y="312" width="343" height="30"/>
@@ -376,6 +373,14 @@
                                     <action selector="updateProfile:" destination="oie-Sp-RYh" eventType="touchUpInside" id="M9m-nm-6ZI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA9-1q-Bkj">
+                                <rect key="frame" x="275" y="64" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="send-photo"/>
+                                <connections>
+                                    <action selector="pickPhoto:" destination="oie-Sp-RYh" eventType="touchUpInside" id="yfz-aa-onP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="RX5-Od-p93"/>
@@ -398,7 +403,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4c-2Y-mHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="5Po-pc-0WR"/>
             </objects>
             <point key="canvasLocation" x="3748" y="886.50674662668678"/>
         </scene>

@@ -15,5 +15,9 @@ target 'Tinsnappook' do
   # [START database]
   pod 'Firebase/Database'
   # [END databse]
+  
+  # [START store]  
+  pod 'Firebase/Storage'
+  # [END store]
 
 end

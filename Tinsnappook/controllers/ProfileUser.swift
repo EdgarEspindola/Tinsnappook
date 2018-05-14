@@ -10,7 +10,7 @@
 import UIKit
 import Firebase
 
-class ProfileUser: UIViewController {
+class ProfileUser: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var menuBarButtonItem: UIBarButtonItem!
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var nicknameTextField: UITextField!
@@ -25,7 +25,7 @@ class ProfileUser: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configActivityIndicator = ConfigActivityIndicator(view: view)
         ConfigRevealView.addTarget(to: menuBarButtonItem, in: revealViewController(), for: view)
         
@@ -117,14 +117,25 @@ class ProfileUser: UIViewController {
             let dateBirth = birthDateButton.currentTitle!
             let uidCurrentUser = Auth.auth().currentUser?.uid
             let friend = Friend(uid: uidCurrentUser, userName: username, genero: genero, dateBirth: dateBirth)
+            let profilePhotoData = UIImageJPEGRepresentation(userImageView.image!, 0.8)
             
             configActivityIndicator.start()
+            
             friendsService.create(friend: friend) { [unowned self] (error: Error?) in
-                self.configActivityIndicator.stop()
                 if let error = error {
+                    self.configActivityIndicator.stop()
                     AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: error.localizedDescription, controller: self)
                 } else {
-                    AlertControllerHelper().showAlertWithDefaultAction(title: "Actualizacion exitosa", message: "Tus datos fueron actualizados correctamente", controller: self)
+                    let uid = Auth.auth().currentUser!.uid
+                    self.friendsService.uploadPhotoProfile(uid: uid, dataFile: profilePhotoData!, { (error: Error?) in
+                        self.configActivityIndicator.stop()
+                        
+                        if let error = error {
+                           AlertControllerHelper().showAlertWithDefaultAction(title: "Error", message: error.localizedDescription, controller: self)
+                        } else {
+                            AlertControllerHelper().showAlertWithDefaultAction(title: "Actualizacion exitosa", message: "Tus datos fueron actualizados correctamente", controller: self)
+                        }
+                    })
                 }
             }
             
@@ -149,11 +160,27 @@ class ProfileUser: UIViewController {
         }
     }
     
+    @IBAction func pickPhoto(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        present(imagePicker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            userImageView.image = image
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: Private Methods
     private func loadImage(friend: Friend) {
         if let image = friend.photoURL {
             // MOSTRAR LA FOTO DE PERFIL DEL USUARIO
-        } else {
+        } else if userImageView.image == nil {
             DispatchQueue.main.async { [unowned self] in
                 self.userImageView.image = UIImage(named: "no-friend")
             }
