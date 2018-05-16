@@ -4,15 +4,16 @@
 //
 //  Created by Usuario on 09/05/18.
 //  Copyright © 2018 edgarespindola. All rights reserved.
+// Email: edgareduardoespindola@gmail.com
 //
 
 import UIKit
 import Firebase
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
-    let postsService = PostsService()
+    var postsService: PostsService!
     var configActivityIndicator: ConfigActivityIndicator!
     
     override func viewDidLoad() {
@@ -22,22 +23,18 @@ class PostViewController: UIViewController {
         print("En viewDidLoad PostViewController")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print("En viewDidAppear PostViewController")
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        postsService = PostsService()
         
         print("en viewWillAppear PostViewController")
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        print("en viewDidDisappear PostViewController")
+        print("En viewDidAppear PostViewController")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,48 +43,79 @@ class PostViewController: UIViewController {
         print("en viewWillDisappear PostViewController")
     }
     
-
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("en viewDidDisappear PostViewController")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func pickImage(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        present(imagePicker, animated: true)
+    }
+    
     @IBAction func createPost(_ sender: UIButton) {
-        let message = textView.text
+        //let message = textView.text
+        let alertHelper = AlertControllerHelper()
+        
+        guard let message = textView.text, let imageSelected = imageView.image else {
+            alertHelper.showAlertWithDefaultAction(title: "Campos vacios", message: "Uno o mas campos vacíos", controller: self)
+            return
+        }
+        
         let idUser = Auth.auth().currentUser?.uid
-        let post = Post(uid: nil, message: message!, userID: idUser!)
+        let post = Post(uid: nil, message: message, userID: idUser!)
         
         configActivityIndicator.start()
-        postsService.create(post: post) { [unowned self] (error: Error?) in
-            self.configActivityIndicator.stop()
-            let alertHelper = AlertControllerHelper()
-            
+        
+        postsService.create(post: post) { [unowned self] (error: Error?, reference: DatabaseReference?) in
+            //self.configActivityIndicator.stop()
             if let error = error {
+                self.configActivityIndicator.stop()
                 DispatchQueue.main.async {
                     alertHelper.showAlertWithDefaultAction(title: "Opps, ha habido un fallo", message: error.localizedDescription, controller: self)
                     return
                 }
             } else {
-                DispatchQueue.main.async {
-                    alertHelper.showAlertWithDefaultAction(title: "Post publicado", message: "Post publicado de manera correcta", controller: self)
-                    self.textView.text = ""
-                    return
+                // Agregar la imagen del post
+                if let reference = reference {
+                    let imageData = UIImageJPEGRepresentation(imageSelected, 1)
+                    self.postsService.uploadPhoto(uid: reference.key, dataFile: imageData!, { (error) in
+                        self.configActivityIndicator.stop()
+                        
+                        if let error = error {
+                            print("Error upload image post: \(error.localizedDescription)")
+                            return
+                        }
+                        
+                        DispatchQueue.main.async {
+                            alertHelper.showAlertWithDefaultAction(title: "Post publicado", message: "Post publicado de manera correcta", controller: self)
+                            self.textView.text = ""
+                            self.imageView.image = nil
+                            return
+                        }
+                    })
                 }
             }
         } // End create posts
         return
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.image = image
+        }
+        
+        dismiss(animated: true)
     }
-    */
 
     deinit {        
         print("En deinit de PostViewController")

@@ -16,11 +16,14 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet var datosPostLabel: UILabel!
     @IBOutlet var imagePostView: UIImageView!
     
-    func loadData(friend: Friend, post: Post) {
-        userImageView.image = nil
+    func loadData(post: Post) {
+        let friend = post.friend!
         usernameUserLabel.text = friend.userName
         creationDatePostLabel = nil
         datosPostLabel.text = post.message
-        imagePostView.image = nil
+        
+        if let image = post.image {
+            imagePostView.image = image
+        }
     }
 }

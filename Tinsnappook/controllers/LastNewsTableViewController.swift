@@ -35,16 +35,9 @@ class LastNewsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        DispatchQueue.global().async { [unowned self] in
-            self.postsService.allPosts(clearPosts: { [unowned self] in
-                self.posts.removeAll()
-            }) { [unowned self] (post: Post) in
-                self.posts.append(post)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
+        self.postsService.allPosts() { [unowned self] (post: Post) in
+            self.posts.append(post)
+            self.tableView.insertRows(at: [IndexPath(row: self.posts.count - 1, section: 0)], with: .automatic)
         }
         
         print("en viewWillAppear LastNewsTableViewController")
@@ -80,17 +73,11 @@ class LastNewsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
         
-        let feedback = { (friend: Friend) in
-                cell.loadData(friend: friend, post: post)
-        }
+        print("Row: \(indexPath.row)")
         
-        DispatchQueue.global(qos: .userInteractive).async { [unowned self] in
-            self.friendsService.findBy(uid: post.userID, completion: feedback)
-        }
-        
+        cell.loadData(post: post)
         return cell
-    }
-    
+    }    
 
     /*
     // Override to support conditional editing of the table view.

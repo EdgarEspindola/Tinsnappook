@@ -4,6 +4,7 @@
 //
 //  Created by Usuario on 09/05/18.
 //  Copyright © 2018 edgarespindola. All rights reserved.
+//  Email: edgareduardoespindola@gmail.com
 //
 
 import Foundation
@@ -11,9 +12,10 @@ import Firebase
 
 struct Post {
     let uid: String?
-    //let image: UIImage?
+    var image: UIImage?
     let message: String
     let userID: String
+    var friend: Friend?
     
     init(uid: String?, message: String, userID: String) {
         self.uid = uid
@@ -36,7 +38,6 @@ struct Post {
     
     func toAnyObject() -> Any {
         return [
-            "uid": uid,
             "message": message,
             "userID": userID
         ]
